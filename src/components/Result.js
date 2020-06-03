@@ -1,15 +1,16 @@
 import React from 'react';
 
 const Result = (props) => {
+    const pokemon = props.pokemon
     return (
         <div>
-            <p>Name: {props.pokemon.name}</p>
-            {/* <p>Dex no.: {pokemon.id}</p>
+            <p>Name: {pokemon.name}</p>
+            <p>Dex no. {pokemon.id}</p>
             <p>Height: {pokemon.height}</p>
             <p>Weight: {pokemon.weight}</p>
             <p>Type: {pokemon.typeOne}</p>
             <p> {pokemon.typeTwo}</p>
-            <img src={pokemon.sprite} /> */}
+            <img src={pokemon.sprite} />
         </div>
     )
 }
