@@ -8,9 +8,14 @@ const Search = (props) => {
     const handleSubmit = () => {
         props.handleSearch(query)
     }
+    const handleKeyPress = event => {
+        if (event.key == 'Enter') {
+          handleSubmit();
+        }
+      };
     return (
         <div>
-          <input name="name" type="text" value={query} onChange={handleChange}/>
+          <input name="name" type="text" value={query} onChange={handleChange} onKeyPress={handleKeyPress}/>
           <input type="submit" value="Search" onClick={handleSubmit}/>  
         </div>
     )
