@@ -8,8 +8,7 @@ const Result = (props) => {
             <p>Dex no. {pokemon.id}</p>
             <p>Height: {pokemon.height}</p>
             <p>Weight: {pokemon.weight}</p>
-            <p>Type: {pokemon.typeOne}</p>
-            <p> {pokemon.typeTwo}</p>
+            <p>Type: {pokemon.typeOne} {pokemon.typeTwo}</p>
             <img src={pokemon.sprite} />
         </div>
     )
