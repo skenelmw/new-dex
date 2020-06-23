@@ -12,12 +12,8 @@ const Search = (props) => {
       mon.toLowerCase().slice(0, inputLength) === inputValue
     );
   };
-  const handleSuggestionClick = (e) => {
-    setQuery(e.target.innerText)
-    handleSubmit()
-  }
   const renderSuggestion = suggestion => (
-    <div onClick={handleSuggestionClick}>
+    <div>
       {suggestion}
     </div>
   );
@@ -30,33 +26,31 @@ const Search = (props) => {
   const handleChange = (e) => {
       setQuery(e.target.value)
   }
-  const handleSubmit = () => {
-      props.handleSearch(query)
+  const handleSubmit = (q) => {
+      props.handleSearch(q)
   }
-  const handleKeyPress = event => {
-    if (event.key == 'Enter') {
-      handleSubmit();
-    }
-  };
+  const onSuggestionSelected = (e, {suggestionValue}) => {
+    setQuery(suggestionValue)
+    handleSubmit(suggestionValue)
+  }
   const inputProps = {
-    placeholder: 'search your \'mon by name or dex number!',
+    placeholder: '\'mon name here',
     value: query,
     onChange: handleChange,
-    onKeyPress: handleKeyPress
   };
   return (
       <div>
-        <input name="name" type="text" value={query} onChange={handleChange} onKeyPress={handleKeyPress}/>
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={onSuggestionsFetchRequested}
           onSuggestionsClearRequested={onSuggestionsClearRequested}
+          onSuggestionSelected={onSuggestionSelected}
           getSuggestionValue={(name) => name}
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
           alwaysRenderSuggestions={true}
         />
-        <input type="submit" value="Search" onClick={handleSubmit}/>  
+        <input type="submit" value="Search" onClick={() => handleSubmit(query)}/>  
       </div>
   )
 }
