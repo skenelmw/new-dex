@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './index.css';
 import Result from './components/Result'
 import Search from './components/Search'
+import '../node_modules/pokemon-font/css/pokemon-font.css'
 
 function App() {
   const [pokelist, setPokelist] = useState([])

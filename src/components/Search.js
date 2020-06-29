@@ -39,7 +39,7 @@ const Search = (props) => {
     onChange: handleChange,
   };
   return (
-      <div>
+      <div id="search">
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -48,7 +48,6 @@ const Search = (props) => {
           getSuggestionValue={(name) => name}
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
-          alwaysRenderSuggestions={true}
         />
         <input type="submit" value="Search" onClick={() => handleSubmit(query)}/>  
       </div>
